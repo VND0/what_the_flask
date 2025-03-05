@@ -1,0 +1,5 @@
+h4 {
+    padding-top: 20px; /* Не думаю, что это проблема, ведь условие задания-то выполнено */
+    padding-left: 20px;
+    color: var(--bs-tertiary-color);
+}
