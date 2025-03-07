@@ -3,3 +3,18 @@ h4 {
     padding-left: 20px;
     color: var(--bs-tertiary-color);
 }
+
+.access-header {
+    display: flex;
+    align-items: center;
+}
+
+.access-header:before {
+    content: "";
+    background-image: var(--mars-url);
+    background-size: contain;
+    display: block;
+    width: 94px;
+    height: 31px;
+    margin: 5px;
+}
