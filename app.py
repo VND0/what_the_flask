@@ -1,8 +1,10 @@
+import os
 from typing import Literal
 
 from flask import Flask, render_template, redirect, url_for
+from werkzeug.utils import secure_filename
 
-from forms import DoubleProtection
+from forms import DoubleProtection, AddToCarousel
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "382adc65b7fcd23c786cc733d7d2a1"
@@ -87,6 +89,25 @@ def distribution():
         "Шон Бин",
     ]
     return render_template("distribution.html", title="Размещение по каютам", room_name="Каюта №", people=people)
+
+
+@app.route("/carousel", methods=["POST", "GET"])
+def carousel():
+    form = AddToCarousel()
+    if form.validate_on_submit():
+        add_to_carousel(form)
+        return redirect("carousel")
+
+    images = []
+    for img in os.listdir(os.path.join(app.static_folder, "carousel")):
+        images.append(url_for("static", filename=os.path.join("carousel", img)))
+
+    return render_template("carousel.html", title="Красная планета", images=images, form=form)
+
+
+def add_to_carousel(form: AddToCarousel):
+    file = form.image.data
+    file.save(os.path.join(app.static_folder, "carousel", secure_filename(file.filename)))
 
 
 if __name__ == '__main__':

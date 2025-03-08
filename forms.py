@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import PasswordField, IntegerField, SubmitField
+from flask_wtf.file import FileRequired
+from wtforms import PasswordField, IntegerField, SubmitField, FileField
 from wtforms.validators import DataRequired
 
 
@@ -9,3 +10,8 @@ class DoubleProtection(FlaskForm):
     cap_id = IntegerField("ID капитана", validators=[DataRequired()])
     cap_passwd = PasswordField("Пароль капитана", validators=[DataRequired()])
     submit = SubmitField("Доступ")
+
+
+class AddToCarousel(FlaskForm):
+    image = FileField("Добавить картинку", validators=[FileRequired()])
+    submit = SubmitField("Отправить")

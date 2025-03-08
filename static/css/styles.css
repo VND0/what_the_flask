@@ -18,3 +18,7 @@ h4 {
     height: 31px;
     margin: 5px;
 }
+
+.carousel-item > img, #carouselIndicators {
+    width: 50vw;
+}
