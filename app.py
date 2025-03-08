@@ -1,6 +1,6 @@
 from typing import Literal
 
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, url_for
 
 from forms import DoubleProtection
 
@@ -61,6 +61,19 @@ def double_protection():
         print(form.cap_id.data)
         return redirect("/Mars")
     return render_template("double_protection.html", title="Аварийный доступ", form=form)
+
+
+@app.get("/training/<prof>")
+def training(prof: str):
+    # Я не в курсе, что за картинки надо все равно. Вставил вторую часть того, что нашел в интернете
+    if "инженер" in prof.lower() or "строитель" in prof.lower():
+        title = "Инженерные тренажеры"
+        img = url_for("static", filename="img/it.png")
+    else:
+        title = "Научные симуляторы"
+        img = url_for("static", filename="img/ns.png")
+
+    return render_template("training.html", title=title, img=img)
 
 
 if __name__ == '__main__':
