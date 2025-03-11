@@ -110,5 +110,26 @@ def add_to_carousel(form: AddToCarousel):
     file.save(os.path.join(app.static_folder, "carousel", secure_filename(file.filename)))
 
 
+@app.get("/table/<gender>/<int:age>")
+def rooms(gender: Literal["male", "female"], age: int):
+    if age > 21:
+        img_src = url_for("static", filename="img/adult.png")
+    else:
+        img_src = url_for("static", filename="img/child.png")
+
+    if gender == "male":
+        if age > 21:
+            bg_col = "#027ff0"
+        else:
+            bg_col = "#b4c3dc"
+    else:
+        if age > 21:
+            bg_col = "#eb5528"
+        else:
+            bg_col = "#f2a481"
+
+    return render_template("room.html", title="Оформление каюты", bg_col=bg_col, img_src=img_src)
+
+
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080, debug=True)

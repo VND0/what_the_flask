@@ -22,3 +22,18 @@ h4 {
 .carousel-item > img, #carouselIndicators {
     width: 50vw;
 }
+
+.with-height {
+    height: 50vh;
+}
+
+.room-color {
+    background-color: var(--bg_col);
+}
+
+.image {
+    background-image: var(--img_src);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}

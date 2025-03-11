@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block in_head %}
+    <style>
+        :root {
+            --bg_col: {{ bg_col }};
+            --img_src: url({{ img_src }});
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="d-flex flex-column align-items-center">
+        <h2>Оформление каюты</h2>
+        <div class="w-50 d-flex gap-1">
+            <div class="flex-grow-1 text-center bg-secondary-subtle p-2">Цвет стен</div>
+            <div class="flex-grow-1 text-center bg-secondary-subtle p-2">Эмблема</div>
+        </div>
+        <div class="w-50 d-flex gap-1">
+            <div class="flex-grow-1 with-height room-color"></div>
+            <div class="flex-grow-1 with-height image"></div>
+        </div>
+    </div>
+{% endblock %}
