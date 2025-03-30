@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Ридли",
+    "surname": "Скотт",
+    "specs": [
+      "инженер-исследователь",
+      "пилот"
+    ],
+    "photoName": "person1.jpg"
+  },
+  {
+    "name": "Энди",
+    "surname": "Уир",
+    "specs": [
+      "строитель",
+      "экзобиолог"
+    ],
+    "photoName": "person2.png"
+  },
+  {
+    "name": "Марк",
+    "surname": "Уотни",
+    "specs": [
+      "врач",
+      "климатолог"
+    ],
+    "photoName": "person3.jpg"
+  },
+  {
+    "name": "Шон",
+    "surname": "Бин",
+    "specs": [
+      "астрогеолог",
+      "гляциолог"
+    ],
+    "photoName": "person4.jpg"
+  }
+]

@@ -1,3 +1,4 @@
+import json
 import os
 from typing import Literal
 
@@ -129,6 +130,13 @@ def rooms(gender: Literal["male", "female"], age: int):
             bg_col = "#f2a481"
 
     return render_template("room.html", title="Оформление каюты", bg_col=bg_col, img_src=img_src)
+
+
+@app.get("/members")
+def members():
+    with open("static/personalData.json") as f:
+        as_json = json.load(f)
+    return render_template("personal_card.html", data=as_json)
 
 
 if __name__ == '__main__':

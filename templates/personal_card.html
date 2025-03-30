@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% set chosen = data | random %}
+    {% set specs = chosen['specs'] | sort %}
+    <div style="max-width: 800px;" class="mx-auto">
+        <h3 class="text-center">{{ chosen['name'] }} {{ chosen['surname'] }}</h3>
+        <img src="{{ url_for('static', filename='img/' + chosen['photoName']) }}" alt="{{ chosen['photoName'] }}"
+             class="d-block mx-auto" style="max-height: 50vh;">
+        <p class="text-center">{{ specs | join(', ') }}</p>
+    </div>
+{% endblock %}
