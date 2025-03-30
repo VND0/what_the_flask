@@ -134,7 +134,7 @@ def rooms(gender: Literal["male", "female"], age: int):
 
 @app.get("/members")
 def members():
-    with open("static/personalData.json") as f:
+    with open("templates/personalData.json") as f:
         as_json = json.load(f)
     return render_template("personal_card.html", data=as_json)
 
